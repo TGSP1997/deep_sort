@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 import numpy as np
 #from scipy.optimize import linear_sum_assignment as linear_assignment
-from application_util.linear_assignement import linear_assignment
+from deep_sort.application_util.linear_assignement import linear_assignment
 from . import kalman_filter
 INFTY_COST = 1e+5
 
