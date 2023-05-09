@@ -156,7 +156,7 @@ def generate_detections(encoder, mot_dir, output_dir, detection_dir=None):
         for f in os.listdir(image_dir)}
 
     detection_file = os.path.join(
-        detection_dir, sequence, "det/det.txt")
+        detection_dir, "det/det.txt")
     detections_in = np.loadtxt(detection_file, delimiter=',')
     detections_out = []
 
@@ -177,7 +177,7 @@ def generate_detections(encoder, mot_dir, output_dir, detection_dir=None):
         detections_out += [np.r_[(row, feature)] for row, feature
                             in zip(rows, features)]
 
-    output_filename = os.path.join(output_dir, "%s.npy" % sequence)
+    output_filename = os.path.join(output_dir, "%s.npy" % os.path.basename(detection_dir))
     np.save(
         output_filename, np.asarray(detections_out), allow_pickle=False)
 
